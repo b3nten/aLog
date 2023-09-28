@@ -10,7 +10,7 @@ Deno: `import "aLog" from "https://deno.land/x/alog/mod.ts";`
 NPM: `import aLog from "atomic-logger";`
 ```ts
 // create log instance with the name "SERVER" & level "Info"
-const log = new aLog("SERVER", aLog.LevelInfo)
+const log = new aLog("aLog", aLog.LevelInfo)
 
 log.debug("Some debug thing") // won't call, below LevelInfo
 log.info("this", "is", { a: true, b: false }, "?") // 0 [SERVER] INFO this is { a: true, b: false } ?
