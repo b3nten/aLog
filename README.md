@@ -21,6 +21,7 @@ log.fatal("I don't feel so good...")
 log.shout("ALWAYS VISIBLE") // Always visible, no tag.
 log.whisper("SOMETIMES VISIBLE") // Visible at LevelInfo, no tag.
 ```
+![example logs](/.github/logs.PNG)
 ## Extending aLog
 
 Create a writer class that inherits Writer and extend the aLog class with it. The custom writer has a single method, `write()` that takes in metadata about the log event and can console.log, write to the filesystem, or whatever you want.
