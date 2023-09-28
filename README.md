@@ -5,7 +5,7 @@ A fast and beautiful logger in ~750 bytes.
 ## Getting started
 Deno: `import "aLog" from "https://deno.land/x/bLog/mod.ts";`
 
-NPM: `import aLog from "aLog";`
+NPM: `import aLog from "atomic-logger";`
 ```ts
 // create log instance with the name "SERVER" & level "Info"
 const log = new aLog("SERVER", aLog.LevelInfo)
