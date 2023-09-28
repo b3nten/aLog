@@ -1,4 +1,4 @@
-![a library with atoms](/.github/alog_header.png)
+![a library with atoms](/.github/header.jpg)
 
 # aLog (atomic logger)
 
