@@ -4,6 +4,6 @@ await esbuild.build({
 		entryPoints: ["./mod.ts"],
 		bundle: true,
 		minify: true,
-		outfile: ".index.js",
+		outfile: "./mod.js",
 })
 
