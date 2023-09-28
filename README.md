@@ -1,9 +1,9 @@
-# aLog
+# aLog (atomic logger)
 
-A fast and beautiful logger in ~750 bytes.
+A fast and beautiful logger in 750 bytes.
 
 ## Getting started
-Deno: `import "aLog" from "https://deno.land/x/bLog/mod.ts";`
+Deno: `import "aLog" from "https://deno.land/x/alog/mod.ts";`
 
 NPM: `import aLog from "atomic-logger";`
 ```ts
