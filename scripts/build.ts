@@ -2,7 +2,7 @@ import { build, emptyDir } from "https://deno.land/x/dnt/mod.ts";
 
 const DIR = "./.npm";
 const LINK = "https://github.com/b3nten";
-const REPO = "project";
+const REPO = "alog";
 
 if (!Deno.args[0]) throw new Error("Please provide a version number.");
 
@@ -18,7 +18,7 @@ await build({
     // package.json properties
     name: REPO,
     version: Deno.args[0],
-    description: "Your package.",
+    description: "aLog is a fast and beautiful runtime-agnostic logger.",
     license: "MIT",
     repository: {
       type: "git",
@@ -30,7 +30,7 @@ await build({
   },
   postBuild() {
     // steps to run after building and before running the tests
-    Deno.copyFileSync("LICENSE", `${DIR}/LICENSE`);
+    Deno.copyFileSync("LICENCE", `${DIR}/LICENSE`);
     Deno.copyFileSync("README.md", `${DIR}/README.md`);
   },
 });

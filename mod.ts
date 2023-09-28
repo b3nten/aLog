@@ -61,9 +61,10 @@ export function gradient(text: string, h: number, s: number, l: number, {
   ul = false,
 } = {}) {
   const final: string[] = [];
+  const inc = 100 / text.length;
   for (let i = 0; i < text.length; i++) {
     final.push(format(text[i], {
-      fg: hslToRgb(h - (12 * i), s, l).join(";") + ";",
+      fg: hslToRgb(h - (inc * i), s, l).join(";") + ";",
       b,
       it,
       ul,
@@ -101,7 +102,7 @@ export class ConsoleWriter implements Writer {
   constructor(name: string) {
     this.name = gradient(
       `[${name}]`,
-      300,
+      40,
       100,
       70,
       { b: true },
@@ -137,7 +138,7 @@ export class ConsoleWriter implements Writer {
  * @property {string} name - name of logger
  * @property {number} level - level of logger
  */
-export class aLog {
+export default class aLog {
   static LevelDebug = 0;
   static LevelInfo = 100;
   static LevelWarn = 200;
