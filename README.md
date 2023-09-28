@@ -12,12 +12,14 @@ NPM: `import aLog from "atomic-logger";`
 // create log instance with the name "SERVER" & level "Info"
 const log = new aLog("SERVER", aLog.LevelInfo)
 
-// won't call, level below info
-log.debug("Some debug thing")
-log.info("this", "is", { a: true, b: false }) // 0 [SERVER] INFO this is { a: true, b: false }
-log.shout("ALWAYS VISIBLE") // 1 [SERVER] ALWAYS VISIBLE
-// Log level info
-log.whisper("SOMETIMES VISIBLE") // 2 [SERVER] SOMETIMES VISIBLE
+log.debug("Some debug thing") // won't call, below LevelInfo
+log.info("this", "is", { a: true, b: false }, "?") // 0 [SERVER] INFO this is { a: true, b: false } ?
+log.success("all right!")
+log.warn("Uh oh")
+log.error("Something went wrong")
+log.fatal("I don't feel so good...")
+log.shout("ALWAYS VISIBLE") // Always visible, no tag.
+log.whisper("SOMETIMES VISIBLE") // Visible at LevelInfo, no tag.
 ```
 ## Extending aLog
 
