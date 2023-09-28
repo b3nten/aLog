@@ -1,3 +1,5 @@
+![a library with atoms](/.github/alog_header.png)
+
 # aLog (atomic logger)
 
 A fast and beautiful logger in 750 bytes.
