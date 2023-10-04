@@ -1,8 +1,7 @@
 /**
- * 
- * @param hue 
- * @param saturation 
- * @param luminance 
+ * @param hue
+ * @param saturation
+ * @param luminance
  * @returns Array<number> [r, g, b]
  */
 export function hslToRgb(
@@ -20,8 +19,7 @@ export function hslToRgb(
   return [f(0), f(8), f(4)];
 }
 /**
- * 
- * @param string 
+ * @param string
  * @param options
  * @param options.b bold
  * @param options.it italic
@@ -37,6 +35,7 @@ export function format(s: string, o: {
   fg?: string;
   bg?: string;
 } = {}) {
+  if(typeof window !== "undefined") return s;
   let c = `${o.b ? "1;" : ""}${o.it ? "3;" : ""}${o.ul ? "4;" : ""}${
     o.fg ? `38;2;${o.fg}` : ""
   }${o.bg ? `48;2;${o.bg};` : ""}`;
@@ -44,7 +43,6 @@ export function format(s: string, o: {
   return `\x1b[${c}m${s}\x1b[0m\x1b[0m`;
 }
 /**
- * 
  * @param text - string
  * @param hue - number
  * @param saturation - number
@@ -52,14 +50,15 @@ export function format(s: string, o: {
  * @param options
  * @param options.b bold
  * @param options.it italic
- * @param options.ul underline 
- * @returns 
+ * @param options.ul underline
+ * @returns
  */
 export function gradient(text: string, h: number, s: number, l: number, {
   b = false,
   it = false,
   ul = false,
 } = {}) {
+  if (typeof window !== "undefined") return text;
   const final: string[] = [];
   const inc = 100 / text.length;
   for (let i = 0; i < text.length; i++) {
@@ -70,6 +69,7 @@ export function gradient(text: string, h: number, s: number, l: number, {
       ul,
     }));
   }
+
   return final.join("");
 }
 /**
@@ -114,7 +114,7 @@ export class ConsoleWriter implements Writer {
     "SUCCESS": format("SUCCESS", { it: true, fg: "10;255;10;" }),
     "WARN": format("WARN", { it: true, b: true, fg: "255;150;0;" }),
     "ERROR": format("ERROR", { it: true, b: true, ul: true, fg: "255;20;0;" }),
-    "FATAL": format("    FATAL    ", { b: true , bg: "255;20;0;" }),
+    "FATAL": format("    FATAL    ", { b: true, bg: "255;20;0;" }),
   };
   write(
     loggerName: string,
@@ -125,7 +125,7 @@ export class ConsoleWriter implements Writer {
   ) {
     // @ts-expect-error this is fine
     const n = this.nameMap[levelName];
-    if(!n){
+    if (!n) {
       console.log(timestamp, this.name, ...args);
       return;
     }

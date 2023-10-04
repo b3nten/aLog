@@ -20,6 +20,7 @@ await build({
     version: Deno.args[0],
     description: "aLog is a fast and beautiful runtime-agnostic logger.",
     license: "MIT",
+    types: "./esm/mod.d.ts",
     repository: {
       type: "git",
       url: `git+${LINK}/${REPO}.git`,
