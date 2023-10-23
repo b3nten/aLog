@@ -14,9 +14,12 @@ await build({
   shims: { deno: true },
   typeCheck: "both",
   scriptModule: false,
+  compilerOptions: {
+    lib: ["DOM"],
+  },
   package: {
     // package.json properties
-    name: REPO,
+    name: "atomic-logger",
     version: Deno.args[0],
     description: "aLog is a fast and beautiful runtime-agnostic logger.",
     license: "MIT",
